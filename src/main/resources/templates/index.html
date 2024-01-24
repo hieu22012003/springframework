@@ -12,14 +12,19 @@
 <div class="container col-6">
     <h1>Manage User</h1>
 
-    <table id="userTable" class="table table-active">
+    <table id="userTable" class="table table-dark" >
+        <thead class="thead-dark">
         <tr>
+            <th>No</th>
             <th>Name</th>
             <th>Email</th>
             <th>Phone</th>
             <th>Actions</th>
         </tr>
+        </thead>
+
         <tr th:each="user : ${users}">
+            <th th:intenger="${user.id}"></th>
             <td th:text="${user.name}"></td>
             <td th:text="${user.email}"></td>
             <td th:text="${user.phone}"></td>
@@ -31,14 +36,6 @@
     </table>
     <a href="/add" class="btn btn-success">Add User</a>
 </div>
-<script>
-    $(document).ready( function () {
-        $('#userTable').DataTable({
-            "lengthMenu": [5, 10, 25, 50, 100], // Chọn số lượng hiển thị
-            "searching": true // Cho phép tìm kiếm
-        });
-    });
-</script>
 
 </body>
 </html>
